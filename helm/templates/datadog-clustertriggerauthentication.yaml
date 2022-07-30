@@ -14,10 +14,16 @@ metadata:
     app.kubernetes.io/version: {{ .Chart.AppVersion }}
     {{- end }}
 spec:
-  secretTargetRef:
-  - parameter: apiKey
-    name: datadog-api-app-keys
-    key: api-key
-  - parameter: appKey
-    name: datadog-api-app-keys
-    key: app-key
+  hashiCorpVault:
+    address: "https://vault.vault:8200"
+    authentication: kubernetes
+    role: vault
+    credential:
+      serviceAccount: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+    secrets:
+    - parameter: apiKey
+      key: api-key
+      path: "secret/data/datadog"
+    - parameter: appKey
+      key: app-key
+      path: "secret/data/datadog"
