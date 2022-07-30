@@ -1,0 +1,6 @@
+repo:
+- '*'
+fleet:
+- 'helm/fleet.yaml'
+helm:
+- 'helm/**/*'

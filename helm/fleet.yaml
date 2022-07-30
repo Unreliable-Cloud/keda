@@ -1,0 +1,27 @@
+defaultNamespace: keda
+
+dependsOn:
+- name: vault-secrets-webhook-helm
+
+diff:
+  comparePatches:
+  - apiVersion: v1
+    kind: Secret
+    name: datadog-api-app-keys
+    namespace: keda
+    jsonPointers:
+    - "/data/app-key"
+    - "/data/api-key"
+
+helm:
+  releaseName: keda
+
+targetCustomizations:
+- name: k8s-us-east
+  helm:
+    valuesFiles:
+    - values/keda-values.yaml
+    - values/k8s-us-east-values.yaml
+  clusterSelector:
+    matchLabels:
+      clusterName: k8s-us-east
