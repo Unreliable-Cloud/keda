@@ -18,7 +18,7 @@ sources:
 version: 2.7.3
 appVersion: 2.7.1
 dependencies:
-  - name: keda
-    repository: https://kedacore.github.io/charts
-    version: 2.7.2
-    alias: keda
+- name: keda
+  repository: "https://kedacore.github.io/charts"
+  version: 2.7.2
+  alias: keda
