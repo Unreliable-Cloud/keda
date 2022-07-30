@@ -1,10 +1,11 @@
 # values for k8s-us-east
-resources:
-  operator:
-    limits:
-      cpu: 300m
-      memory: 500Mi
-  metricServer:
-    limits:
-      cpu: 300m
-      memory: 500Mi
+keda:
+  resources:
+    operator:
+      limits:
+        cpu: 300m
+        memory: 500Mi
+    metricServer:
+      limits:
+        cpu: 300m
+        memory: 500Mi
