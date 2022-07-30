@@ -4,7 +4,7 @@ kind: ClusterTriggerAuthentication
 metadata:
   name: datadog
   annotations:
-    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook: post-install
     helm.sh/hook-delete-policy: hook-failed
   labels:
     helm.sh/chart: {{ include "keda.chart" . }}
