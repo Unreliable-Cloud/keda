@@ -1,31 +1,30 @@
 # Global values for KEDA
 
-keda:
-  crds:
-    install: true
+crds:
+  install: true
 
-  resources:
-    operator:
-      limits:
-        cpu: 1
-        memory: 1000Mi
-      requests:
-        cpu: 100m
-        memory: 100Mi
-    metricServer:
-      limits:
-        cpu: 1
-        memory: 1000Mi
-      requests:
-        cpu: 100m
-        memory: 100Mi
+resources:
+  operator:
+    limits:
+      cpu: 1
+      memory: 1000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
+  metricServer:
+    limits:
+      cpu: 1
+      memory: 1000Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
 
-  prometheus:
-    metricServer:
-      enabled: true
-    operator:
-      enabled: true
+prometheus:
+  metricServer:
+    enabled: true
+  operator:
+    enabled: true
 
-  datadog:
-    apiKey: "vault:secret/data/datadog#api-key"
-    appKey: "vault:secret/data/datadog#app-key"
+datadog:
+  apiKey: "vault:secret/data/datadog#api-key"
+  appKey: "vault:secret/data/datadog#app-key"
