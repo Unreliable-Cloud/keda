@@ -10,12 +10,13 @@ keda:
         cpu: 300m
         memory: 500Mi
   prometheus:
-    metricsServer:
+    metricServer:
       enabled: true
     operator:
       enabled: true
       prometheusRules:
         enabled: true
+        namespace: keda
         alerts:
         - alert: KedaScalerErrors
           expr: sum by ( scaledObject , scaler) (rate(keda_metrics_adapter_scaler_errors[2m]))  > 0
