@@ -14,10 +14,12 @@ keda:
       enabled: true
       podMonitor:
         enabled: true
+        namespace: keda
     operator:
       enabled: true
       podMonitor:
         enabled: true
+        namespace: keda
       prometheusRules:
         enabled: true
         namespace: keda
