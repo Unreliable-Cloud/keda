@@ -30,7 +30,7 @@ keda:
           labels:
             component: keda
             ruleSource: helm
-            severity: warning
+            severity: critical
           annotations:
             description: Keda scaledObject {{ $labels.scaledObject }} is experiencing errors with {{ $labels.scaler }} scaler
             summary: Keda Scaler {{ $labels.scaler }} Errors
