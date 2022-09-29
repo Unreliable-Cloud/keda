@@ -20,7 +20,6 @@ targetCustomizations:
 - name: k8s-us-east
   helm:
     valuesFiles:
-    - values/keda-values.yaml
     - values/k8s-us-east-values.yaml
   clusterSelector:
     matchLabels:

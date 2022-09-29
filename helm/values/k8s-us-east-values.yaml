@@ -1,14 +1,24 @@
 # values for k8s-us-east
 keda:
+  crds:
+    install: true
+  logging:
+    format: json
   resources:
     operator:
       limits:
         cpu: 300m
         memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 100Mi
     metricServer:
       limits:
         cpu: 300m
         memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 100Mi
   prometheus:
     metricServer:
       enabled: true
@@ -34,3 +44,11 @@ keda:
           annotations:
             description: Keda scaledObject {{ $labels.scaledObject }} is experiencing errors with {{ $labels.scaler }} scaler
             summary: Keda Scaler {{ $labels.scaler }} Errors
+  podAnnotations:
+    keda:
+      ad.datadoghq.com/keda-operator.logs: '[{"source": "go", "service": "keda-operator", "sourcecategory": "kubernetes"}]'
+    metricsAdapter:
+      ad.datadoghq.com/keda-operator-metrics-apiserver.logs: '[{"source": "go", "service": "keda-operator-metrics-apiserver", "sourcecategory": "kubernetes"}]'
+datadog:
+  apiKey: "vault:secret/data/datadog#api-key"
+  appKey: "vault:secret/data/datadog#app-key"
