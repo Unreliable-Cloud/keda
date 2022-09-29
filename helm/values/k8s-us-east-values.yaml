@@ -9,3 +9,21 @@ keda:
       limits:
         cpu: 300m
         memory: 500Mi
+  prometheus:
+    metricsServer:
+      enabled: true
+    operator:
+      enabled: true
+      prometheusRules:
+        enabled: true
+        alerts:
+        - alert: KedaScalerErrors
+          expr: sum by ( scaledObject , scaler) (rate(keda_metrics_adapter_scaler_errors[2m]))  > 0
+          for: 2m
+          labels:
+            component: keda
+            ruleSource: helm
+            severity: warning
+          annotations:
+            description: Keda scaledObject {{ $labels.scaledObject }} is experiencing errors with {{ $labels.scaler }} scaler
+            summary: Keda Scaler {{ $labels.scaler }} Errors

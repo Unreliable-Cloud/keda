@@ -2,6 +2,9 @@
 keda:
   crds:
     install: true
+
+  logging:
+    format: json
   
   resources:
     operator:
