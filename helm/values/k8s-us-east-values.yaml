@@ -21,17 +21,17 @@ keda:
         memory: 100Mi
   prometheus:
     metricServer:
-      enabled: true
+      enabled: false
       podMonitor:
-        enabled: true
+        enabled: false
         namespace: keda
     operator:
       enabled: true
       podMonitor:
-        enabled: true
+        enabled: false
         namespace: keda
       prometheusRules:
-        enabled: true
+        enabled: false
         namespace: keda
         alerts:
         - alert: KedaScalerErrors
