@@ -1,21 +1,21 @@
----
-apiVersion: keda.sh/v1alpha1
-kind: ClusterTriggerAuthentication
-metadata:
-  name: datadog
-  labels:
-    helm.sh/chart: {{ include "keda.chart" . }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    {{- if .Chart.AppVersion }}
-    app.kubernetes.io/version: {{ .Chart.AppVersion }}
-    {{- end }}
-spec:
-  secretTargetRef:
-  - parameter: apiKey
-    name: datadog-api-app-keys
-    key: api-key
-  - parameter: appKey
-    name: datadog-api-app-keys
-    key: app-key
-
+#---
+#apiVersion: keda.sh/v1alpha1
+#kind: ClusterTriggerAuthentication
+#metadata:
+#  name: datadog
+#  labels:
+#    helm.sh/chart: {{ include "keda.chart" . }}
+#    app.kubernetes.io/managed-by: {{ .Release.Service }}
+#    app.kubernetes.io/instance: {{ .Release.Name }}
+#    {{- if .Chart.AppVersion }}
+#    app.kubernetes.io/version: {{ .Chart.AppVersion }}
+#    {{- end }}
+#spec:
+#  secretTargetRef:
+#  - parameter: apiKey
+#    name: datadog-api-app-keys
+#    key: api-key
+#  - parameter: appKey
+#    name: datadog-api-app-keys
+#    key: app-key
+#
